@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.neutral.950');
+    color: theme('colors.neutral.100');
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(120, 0, 0, 0.15), transparent 40%),
+      radial-gradient(circle at 0% 50%, rgba(20, 20, 20, 1), transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5 shadow-2xl;
+  }
+
+  .glass-button {
+    @apply bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white transition-all duration-300;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Reveal Animation Utility */
+  .reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
